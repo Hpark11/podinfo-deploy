@@ -4,12 +4,14 @@ metadata:
   name: frontend
   namespace: test
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: frontend
   ports:
     - name: http
-      port: 9898
+      nodePort: 9898
+      port: 8080
+      targetPort: 9898
       protocol: TCP
       targetPort: http
     - port: 9999
